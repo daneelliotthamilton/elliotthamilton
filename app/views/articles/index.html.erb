@@ -1,0 +1,23 @@
+<h1>Articles</h1>
+
+<div id="postListings">
+    <% @articles.order("created_at DESC").each do |article| %>
+    <article class="postListing">
+      <header>
+        <h3><%= article.title %><br>
+          <small>
+            <span class="glyphicon glyphicon-calendar"></span>
+            <%= article.published_at&.strftime("%B %d, %Y") %>
+          </small>
+        </h3>
+      </header>
+      <section class="listingBody">
+        <%= article.body.to_plain_text.truncate(700) %>
+      </section>
+      <footer>
+        <%= link_to 'Read More', article_path(article), class: "btn btn-primary", data: {disable_with: "Loading..."} %>
+      </footer>
+    </article>
+    <% end %>
+  </div>
+<%= link_to "New article", new_article_path %>

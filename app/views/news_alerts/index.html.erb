@@ -1,0 +1,16 @@
+<div class="page-header">
+  <h1>New Updates</h1>
+</div>
+<div class="page-description">
+  Here is we we keep you updated on various developments within our pratice groups in the jurisdictions where we practice.
+</div>
+<ul id="new-alerts">
+  <% @news_alerts.each do |news_alert| %>
+    <li class="news-alert">
+      <header><%= news_alert.title %></header>
+      <section>
+        <%= news_alert.content %>
+      </section>
+    </li>
+  <% end %>
+</ul>

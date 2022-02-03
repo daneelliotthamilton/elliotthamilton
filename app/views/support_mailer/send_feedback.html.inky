@@ -1,0 +1,12 @@
+<row>
+  <columns small="12" large="12">
+    <p> <%= @feedback.message %></p>
+  </columns>
+</row>
+<row>
+  <columns small="12" large="12">
+    <p>From<br>
+      <%= @feedback.name %>
+    </p>
+  </columns>
+</row>

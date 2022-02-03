@@ -1,0 +1,149 @@
+@font-face{
+  font-family: 'Montserrat';
+  src:font-url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+  font-family: 'Montserrat', sans-serif !important;
+}
+#navbar-items{
+  font-size: 1.5em;
+  font-weight: 100;
+  a, a:link, a:visited, a:hover{
+          display: block;
+          text-decoration: none;
+          color: #1C3156;
+          background-color: transparent;
+        }
+}
+
+#banner{
+  background-image: url('banner1.png');
+  height: 480px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+#banner-text{
+  padding: 20px 10px;
+  font-size: 3em;
+  font-weight: lighter;
+  color: #fff;
+}
+
+.home-panel{
+  height: 350px;
+  padding: 20px;
+  margin-top: 20px;
+  h2{
+    padding-bottom: 10px;
+  }
+}
+
+#home-about{
+  background-color: #1C3156;
+  color: #fff;
+  h2{
+    border-bottom: #ffffff solid 1px;
+  }
+  p{
+    font-size: 20px;
+  }
+}
+
+#home-news{
+  background-color: #D8D8D8;
+  h2{
+    border-bottom: #000000 solid 1px;
+  }
+}
+
+#home-practice-areas{
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+
+#home-practice-header{
+  text-align: center;
+  color: #1C3156;
+  margin: 20px auto;
+  font-weight: lighter;
+  font-size: 51px;
+}
+.pa-section{
+  text-align: center;
+  color: #1C3156;
+  font-size: 24px;
+  margin: 20px auto;
+  .pa-image-holder{
+    background-color: #D8D8D8;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: #979797 solid 1px;
+    padding: 10px;
+    margin: 0 auto;
+    img#real-estate-img{
+      margin: 25% auto;
+    }
+    img#corporate-img{
+      margin: 40% auto;
+    }
+    img#dispute-img{
+      margin: 20% auto;
+    }
+    img#tort-img{
+      margin: 20% auto;
+    }
+    img#admin-img{
+      margin: 25% auto;
+    }
+    img#ip-img{
+      margin: 25% auto;
+    }
+  }
+}
+
+#main-footer{
+  margin-top: 20px;
+  background-color: #D8D8D8;
+  padding: 50px 50px;
+  #legal-information{
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+
+.page-header{
+  h1{
+    color: #1c3156;
+    border-bottom: #979797 solid 1px;
+  }
+  margin-bottom: 20px;
+}
+
+#news-alerts{
+  list-style: none;
+}
+
+#landing-banner{
+  margin: 40px auto;
+  text-align: center;
+  border-bottom: #979797 solid 1px;
+  .landing-notice{
+    margin-top: 20px;
+    font-size: 2em;
+    font-style: italic;
+  }
+  .motto{
+    margin-top: 10px;
+    i{
+      font-size: 0.6em;
+      margin-bottom: 2px;
+    }
+  }
+}

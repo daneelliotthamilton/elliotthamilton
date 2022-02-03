@@ -1,0 +1,41 @@
+<% provide :schema do %>
+  <%= render 'schema' %>
+<% end %>
+<div class="row">
+  <div id="landing-banner">
+    <%= image_tag 'logo.svg', class: 'img-fluid' %>
+    <p class="motto">Corporate & Commercial Law <%= icon 'fas', 'circle' %> Real Estate Development <%= icon 'fas', 'circle' %>  Administrative & Constitutional Law <%= icon 'fas' ,'circle' %> Intellectual Property Law</p>
+    <p class="landing-notice">
+      Our Website is currently under construction.
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h4>Street Address:</strong></h4>
+      Chambers,<br>
+      #3 Princes Street<br>
+      P.O. Box 1936<br>
+      Basseterre, Saint George<br>
+      Saint Kitts and Nevis<br>
+      Tel: (869) 665-8936
+    </div>
+    <div class="col-sm-6">
+      <h4>Send a Message</h4>
+      <%= simple_form_for @feedback, url: url_for(action: 'create', controller: 'support/feedbacks'), method: :post do |f| %>
+        <%= f.input :name %>
+        <%= f.input :email %>
+        <%= f.input :subject %>
+        <%= f.input :message, as: :text, input_html: { rows: 10 } %>
+        <p>
+          <%= flash[:recaptcha_error] %>
+          <% if @show_checkbox_recaptcha %>
+            <%= recaptcha_tags site_key: Rails.application.credentials.recaptcha[:site_key] %>
+          <% else %>
+            <%= recaptcha_v3(action: 'send_feedback') %>
+          <% end %>
+        </p>
+        <%= f.button :submit, "Send", disable_with: "Processing...", class: 'btn btn-primary', id: 'contact-form-button' %>
+      <% end %>
+    </div>
+  </div>
+</div>

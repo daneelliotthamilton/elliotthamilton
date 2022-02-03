@@ -1,0 +1,51 @@
+<script type="application/ld+json">
+	{
+		"@context":"http://schema.org",
+		"@type": "BlogPosting",
+		"url": "<%= post_url(@article) %>",
+		"headline": "<%= @article.title %>",
+		"alternativeHeadline": "<%= @article.subtitle %>",
+		"dateCreated": "<%= @article.created_at.strftime('%FT%T') %>",
+		"datePublished": "<%= @article.published_at.strftime('%FT%T') %>",
+		"dateModified": "<%= @article.updated_at.strftime('%FT%T') %>",
+		"inLanguage": "en-US",
+		"isFamilyFriendly": "true",
+		"copyrightYear": "<%= @article.published_at.strftime('%Y') %>",
+		"copyrightHolder": "Dane Victor Clarence Elliott-Hamilton",
+		"contentLocation": {
+			"@type": "Place",
+			"name": "#3 Princes Street, Basseterre, Saint Kitts and Nevis"
+		},
+		"accountablePerson": {
+			"@type": "Person",
+			"name": "Dane Elliott-Hamilton",
+			"url": "https://elliotthamilton.com"
+		},
+		"author": {
+			"@type": "Person",
+			"name": "Dane Elliott-Hamilton",
+			"url": "https://elliotthamilton.com"
+		},
+		"creator": {
+			"@type": "Person",
+			"name": "Dane Elliott-Hamilton",
+			"url": "https://elliotthamilton.com"
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "Elliott-Hamilton Law",
+			"url": "https://www.elliotthamilton.com",
+			"logo": {
+				"@type": "ImageObject",
+				"url": "http://assets.elliotthamilton.com/images/FirmLogo@2x.png",
+				"width":"400",
+				"height":"55"
+			}
+		},
+		"mainEntityOfPage": "True",
+		"keywords": <%= @article.tag_list %>,
+		"genre":["<%= @article.category %>"],
+		"articleSection": "<%= @article.category %>",
+		"articleBody": "<%= @article.body.to_plain_text %>"
+	}
+</script>

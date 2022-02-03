@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Our Practice</h1>
+
+<div class="page-description">
+  We are a full-service law firm practising primarily in civil litigation, corporate and commercial,
+  intellectual property and administrative & constitutional law.
+</div>
+<ul id="practice-listing">
+  <% @practice_areas.each do |practice_area| %>
+    <li><%= link_to practice_area.title, practice_area_path(practice_area) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Add Practice Area", new_practice_area_path, class: "btn btn-primary" %>

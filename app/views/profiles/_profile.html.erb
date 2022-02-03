@@ -1,0 +1,25 @@
+<div id="<%= dom_id profile %>">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="profile-picture">
+          <%= image_tag profile.avatar, class: "img-fluid" %>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <h2><%= profile.title %></h2>
+        <section class="profile-bio">
+          <%= profile.bio %>
+        </section>
+        <section class="profile-admissions">
+          <strong>Bar Admissions:</strong><br>
+          <%= profile.bar_admissions %>
+        </section>
+        <section class="profile-education">
+          <strong>Education:</strong><br>
+          <%= profile.education %>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
