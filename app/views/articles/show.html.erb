@@ -13,7 +13,7 @@
     <small><%= @article.subtitle %> </small>
   </h1>
   <%= icon 'fas', 'calendar' %> <%= @article.date.strftime("%B %d, %Y") %>
-  <%= link_to 'Edit Post', edit_post_path(@article), class: "btn btn-info btn-sm" if user_signed_in? %>
+  <%= link_to 'Edit Post', edit_article_path(@article), class: "btn btn-info btn-sm" if user_signed_in? %>
 </div>
 <div class="row">
   <div class="container-fluid" id="mainPost">
