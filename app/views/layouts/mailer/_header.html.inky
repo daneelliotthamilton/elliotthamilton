@@ -1,0 +1,5 @@
+<row>
+  <columns small="12" large="12">
+    <%= image_tag "https://assets.elliotthamilton.com/images/FirmLogo@0.5x.png", alt: "Elliott-Hamilton Law", style: "font-size: 30px; color: #1C3156; max-width: 440px; max-height: 55px; margin-top: 15px;" %>
+  </columns>
+</row>

@@ -1,0 +1,17 @@
+Hi <%= @resource.first_name %>!
+
+Welcome to Gestus! Lexscio is Elliott-Hamilton Law's internal office management system.
+
+We're happy to make your office more productive.
+
+Before entering your workspace we need to make sure you have access to the
+email address that you registered with.
+
+Copy the following link into your browser to confirm.
+
+You should look out for our welcome email in your inbox shortly.
+
+Confirm Email: (<%= confirmation_url(@resource, confirmation_token: @token) %>)
+
+All the Best!
+Elliott-Hamilton Law

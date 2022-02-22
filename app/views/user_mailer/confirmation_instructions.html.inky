@@ -1,0 +1,45 @@
+<row>
+    <columns small="12" large="12">
+      <p>
+        <strong>Hi <%= @resource.first_name %>,</strong>
+      </p>
+    </columns>
+</row>
+<row>
+    <columns small="12" large="12">
+      <p>
+        Welcome to Gestus!
+      </p>
+      <p>
+        Gestus is Elliott-Hamilton Law's internal office management system.
+      </p>
+      <p>
+        Before entering your workspace we need to make sure you have access to the
+        email address that you registered with.
+      </p>
+      <p>
+        Simply click the button below.
+      </p>
+    </columns>
+  </row>
+  <row>
+    <columns small="12" large="12">
+      <center>
+        <button class="large"><%= link_to 'Confirm My Account', confirmation_url(@resource, confirmation_token: @token) %></button>
+      </center>
+    </columns>
+  </row>
+  <row>
+    <columns small="12" large="12">
+      <p>
+        You should look out for our welcome email in your inbox shortly.
+      </p>
+    </columns>
+  </row>
+  <row>
+    <columns small="12" large="12">
+      <p>All the Best!<br>
+        Elliott-Hamilton Law
+      </p>
+    </columns>
+  </row>

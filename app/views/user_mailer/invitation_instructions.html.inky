@@ -1,0 +1,31 @@
+<row>
+    <columns small="12" large="12">
+      <strong>Hi <%= @resource.first_name %>,</strong>
+    </columns>
+  </row>
+  <row>
+    <columns small="12" large="12">
+      <p>
+        <%= @resource.invited_by.first_name %> would like you to join Elliott-Hamilton Law's online workspace.
+      </p>
+      <p>
+        Accepting this invitation allows you to  access to all notes,
+         tasks and documents related to the matters relating to
+         Elliott-Hamilton Law's matters.
+      </p>
+    </columns>
+  </row>
+  <row>
+    <columns small="12" large="12">
+      <center>
+        <button class="large"><%= link_to "Join Elliott-Hamilton Law", accept_invitation_url(@resource, invitation_token: @token) %></button>
+      </center>
+    </columns>
+  </row>
+  <row>
+    <columns small="12" large="12">
+      <p>All the Best!<br>
+        Elliott-Hamilton Law
+      </p>
+    </columns>
+  </row>

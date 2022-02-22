@@ -1,0 +1,10 @@
+Hi <%= @resource.first_name %>
+
+<%= @resource.invited_by.first_name %> would like you to join Elliott-Hamilton Law's online workspace.
+
+Accepting this invitation allows you to  access to all notes, tasks and documents related to the matters relating to Elliott-Hamilton Law's matters.
+
+Copy the following link into your browser to confirm: (<%= accept_invitation_url(@resource, invitation_token: @token) %>)
+
+All the Best,
+Elliott-Hamilton Law
