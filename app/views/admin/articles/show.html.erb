@@ -65,7 +65,7 @@
           <p>
             <%= simple_form_for @article, url: schedule_admin_article_path do |f| %>
               <div class="form-inputs">
-                <%= f.input :scheduled_at, label: "Schedule Date and Time", as: :datetime_picker %>
+                <%= f.input :scheduled_at, label: "Schedule Date and Time", as: :datetime_picker, input_html: { "data-controller" => "datetime-picker"} %>
               </div>
               <br>
               <div class="form-actions">
