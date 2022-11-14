@@ -1,0 +1,32 @@
+<div class="admin_header">
+  <h1>Articles</h1>
+  <ul>
+    <li>All</li>
+    <li>Published</li>
+    <li>Draft</li>
+    <li>Scheduled</li>
+  </ul>
+</div>
+
+<div class="component">
+  <div class="component-heading">Post Listings</div>
+    <% @articles.order("created_at DESC").each do |article| %>
+      <article class="component-item">
+        <header>
+          <h3><%= article.title %><br>
+            <small>
+              <%= icon 'fas', 'calendar' %>
+              <%= article.published_at&.strftime("%B %d, %Y") %>
+            </small>
+          </h3>
+        </header>
+        <section class="listingBody">
+          <%= article.body.to_plain_text.truncate(700) %>
+        </section>
+        <footer>
+          <%= link_to 'Read More', admin_article_path(article), class: "btn btn-primary", data: {disable_with: "Loading..."} %>
+        </footer>
+      </article>
+    <% end %>
+</div>
+

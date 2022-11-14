@@ -1,5 +1,11 @@
-<h1>Articles</h1>
-
+<h1>Our Insights</h1>
+<p>
+  Here we keep you updated on matters of interest in our practice areas.
+</p>
+<p>
+  The articles listed on this website are for informational and discussion purposes and should not be construed as the giving of legal advice.
+  Should you require advice on your specific situation, please do not hesitate to <%= link_to "contact us", contact_path %>.
+</p>
 <div id="postListings">
     <% @articles.order("created_at DESC").each do |article| %>
     <article class="postListing">
@@ -20,4 +26,3 @@
     </article>
     <% end %>
   </div>
-<%= link_to "New article", new_article_path %>

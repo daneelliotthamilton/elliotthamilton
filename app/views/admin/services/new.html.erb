@@ -1,0 +1,30 @@
+<div class="admin_header">
+  <h1><%= @practice_area.title %>: New Service</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-8">
+    <div class="component">
+      <div class="component-heading">Service Details</div>
+      <div class="component-body">
+
+        <%= simple_form_for(@service, url: admin_practice_area_services_path(practice_area_id: @practice_area.id)) do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+          <div class="form-inputs">
+            <%= f.input :title %>
+            <%= f.input :category, collection: Service::CATEGORIES, input_html: {class: "select2"} %>
+            <%= f.input :description %>
+            <%= f.input :content, as: :rich_text_area %>
+          </div>
+          <br>
+          <div class="form-actions">
+            <%= f.button :submit, class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<br>

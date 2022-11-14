@@ -1,0 +1,14 @@
+<h1>Update Page</h1>
+
+<%= simple_form_for @page, url: admin_pages_url do |f| %>
+  <%= f.input :title %>
+  <%= f.input :url %>
+  <div id="tags">
+    <%= f.simple_fields_for :tags do |t| %>
+      <%= render 'tag_fields', f: t %>
+    <% end %>
+  </div>
+  <%= link_to_add_association "Add Another Tag", f, :tags, class: 'btn btn-secondary btn-sm', data: { 'association-insertion-method' => 'append', 'association-insertion-node' => '#tags'} %>
+  <%= f.input :content, as: :rich_text_area %>
+  
+  <%= f.button :submit, data: { disable_with: "Processing..." }, class: "btn btn-primary" %>

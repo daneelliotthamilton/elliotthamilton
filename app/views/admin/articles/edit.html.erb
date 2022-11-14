@@ -1,0 +1,32 @@
+<div class="admin_header">
+  <h1>
+    <%= @article.title %><br>
+    <small><%= @article.subtitle %></small>
+  </h1>
+  <ul>
+    <li><%= link_to "Article", admin_article_path(@article) %></li>
+    <li><%= link_to "Edit", edit_admin_article_path(@article) %></li>
+    <li><%= link_to "Delete", admin_article_path(@article), method: :delete %></li>
+  </ul>
+</div>
+<div class="row">
+  <div class="col-sm-8">
+    <div class="component">
+      <div class="component-body">
+        <%= simple_form_for @article, url: admin_article_path(@article) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :title %>
+            <%= f.input :subtitle %>
+            <%= f.input :category, collection: Article::CATEGORIES, class: "select2" %>
+            <%= f.input :description %>
+            <%= f.input :body, as: :rich_text_area %>
+          </div>
+          <div class="form-actions">
+            <br>
+            <%= f.button :submit, "Update Article", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

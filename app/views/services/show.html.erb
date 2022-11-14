@@ -6,8 +6,5 @@
   <%= @service.content %>
 </div>
 <div>
-  <%= link_to "Edit this service", edit_service_path(@service) %> |
   <%= link_to "Back to #{@service.practice_area.title}", practice_area_path(@service.practice_area) %>
-
-  <%= link_to "Destroy this service", @service, method: :delete, class: "btn btn-danger"  %>
 </div>

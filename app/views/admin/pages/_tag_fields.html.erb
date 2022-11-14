@@ -1,0 +1,16 @@
+<div class="nested-fields container-fluid">
+  <div class="row">
+    <div class="col-2">
+      <%= f.input :property_type, as: :radio_buttons, collection: Pages::Tag::TYPES %>
+    </div>
+    <div class="col-3">
+      <%= f.input :property, collection: Pages::Tag::PROPERTIES %>
+    </div>
+    <div class="col-6">
+      <%= f.input :content %>
+    </div>
+    <div class="col-1">
+      <%= link_to_remove_association icon('fas','remove'), f %>
+    </div>
+  </div>
+</div>

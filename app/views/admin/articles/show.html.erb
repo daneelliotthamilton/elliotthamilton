@@ -1,0 +1,81 @@
+<div class="admin_header">
+  <h1>
+    <%= @article.title %><br>
+    <small><%= @article.subtitle %></small>
+  </h1>
+  <ul>
+    <li><%= link_to "Article", admin_article_path(@article) %></li>
+    <li><%= link_to "Edit", edit_admin_article_path(@article) %></li>
+    <li><%= link_to "Delete", admin_article_path(@article), method: :delete %></li>
+  </ul>
+</div>
+<div class="row">
+  <div class="col-sm-8">
+    <div class="component">
+      <div class="component-item">
+        <h5>Description:</h5>
+        <%= @article.description %>
+      </div>
+      <div class="component-item">
+        <%= @article.body %>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="component">
+      <div class="component-heading">
+        Actions
+      </div>
+      <div class="component-item">
+        <h6>Publishing</h6>
+        <% if @article.published %>
+          <p>
+            This article has been published on <%= formatted_time @article.published_at %>.
+          </p>
+          <p>
+            This article is generally available to website visitors. If you wish to remove this article from circulations you should take it down below.
+          </p>
+          <p>
+            <%= link_to "Take Down", unpublish_admin_article_path, class: "btn btn-danger", method: :patch %>
+          </p>
+        <% else %>
+        <p>
+          By publishing this article you will make the article available to visitors to the website. 
+        </p>
+        <p>
+          <%= link_to "Publish", publish_admin_article_path, class: "btn btn-success", method: :patch %>
+
+        </p>
+        <% end %>
+      </div>
+      <% unless @article.scheduled_and_published? %>
+      <div class="component-item">
+        <h6>Scheduling</h6>
+        <% if @article.scheduled_for_publication? %>
+          <p>
+            The Article is scheduled for publication at <%= formatted_time(@article.scheduled_at) %>.
+          </p>
+          <p>
+            <%= link_to "Cancel Schedule", unschedule_admin_article_path, class: "btn btn-danger", method: :patch %>
+          </p>
+        <% else %>
+          <p>
+            Instead of publishing immediately you may schedule this post here. 
+          </p>
+          <p>
+            <%= simple_form_for @article, url: schedule_admin_article_path do |f| %>
+              <div class="form-inputs">
+                <%= f.input :scheduled_at, label: "Schedule Date and Time", as: :datetime_picker %>
+              </div>
+              <br>
+              <div class="form-actions">
+                <%= f.button :submit, "Schedule", class: "btn btn-secondary" %>
+              </div>
+            <% end %>
+          </p>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

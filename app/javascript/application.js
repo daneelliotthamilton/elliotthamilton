@@ -6,4 +6,6 @@ import "bootstrap"
 import "trix"
 import "@rails/actiontext"
 import 'select2'
-import * as flatpickr from "flatpickr"
+import 'flatpickr'
+import './init.js'
+import './form.js'

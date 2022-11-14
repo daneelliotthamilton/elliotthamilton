@@ -4,16 +4,12 @@
 <div class="page-description">
   <%= @practice_area.description %>
 </div>
-<ul class="service-listings">
+<ul class="list-group">
   <% @practice_area.services.each do |service| %>
-    <li><%= link_to service.title, practice_area_service_path(@practice_area, service) %></li>
+    <li class="list-group-item"><%= link_to service.title, practice_area_service_path(@practice_area, service) %></li>
   <% end %>
 </ul>
-
+<br>
 <div>
-  <%= link_to "Add New Service", new_practice_area_service_path(@practice_area) %> |
-  <%= link_to "Edit this practice area", edit_practice_area_path(@practice_area) %> |
-  <%= link_to "Back to practice areas", practice_areas_path %>
-
-  <%= button_to "Destroy this practice area", @practice_area, method: :delete %>
+  <%= link_to "Back to #{@practice_area.title}", practice_area_path(@practice_area) %>
 </div>

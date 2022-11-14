@@ -1,0 +1,26 @@
+<div class="admin_header">
+  <h1>Update Practice Area</h1>
+  <ul>
+    <li><%= link_to "Practice Area", admin_practice_area_path %></li>
+    <li><%= link_to "Edit", edit_admin_practice_area_path %></li>
+    <li><%= link_to "Delete", admin_practice_area_path, method: :delete %></li>
+  </ul>
+</div>
+<div class="row">
+  <div class="col-sm-8">
+    <div class="component">
+      <div class="component-heading">Description</div>
+      <div class="component-body">
+        <%= @practice_area.description %>
+      </div>
+    </div>
+    <div class="component">
+      <div class="component-heading">Service Areas <div class="float-end"><%= link_to new_admin_practice_area_service_path(@practice_area) do%><%= icon 'fas', 'plus' %><% end %></div></div>
+      <% @practice_area.services.each do |service| %>
+        <div class="component-item">
+          <%= link_to service.title, admin_practice_area_service_path(@practice_area, service) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

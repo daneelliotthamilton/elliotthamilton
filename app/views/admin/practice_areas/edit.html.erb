@@ -1,0 +1,32 @@
+<div class="admin_header">
+  <h1>Update Practice Area</h1>
+  <ul>
+    <li><%= link_to "Practice Area", admin_practice_area_path %></li>
+    <li><%= link_to "Edit", edit_admin_practice_area_path %></li>
+    <li><%= link_to "Delete", admin_practice_area_path, method: :delete %></li>
+  </ul>
+</div>
+
+<div class="row">
+  <div class="col-sm-8">
+    <div class="component">
+      <div class="component-heading">Update Details</div>
+      <div class="component-body">
+        <%= simple_form_for(@practice_area, url: admin_practice_area_path(@practice_area)) do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+          <div class="form-inputs">
+            <%= f.input :title %>
+            <%= f.input :description, as: :rich_text_area %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, class: "btn btn-primary" %>
+          </div>
+        <% end %>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>

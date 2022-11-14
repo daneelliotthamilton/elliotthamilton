@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users, controllers: {
       sessions: 'users/sessions',
       registrations: 'users/registrations',
@@ -8,17 +9,34 @@ Rails.application.routes.draw do
       invitations:'users/invitations'
     }
 
-  resources :practice_areas do
+  get '/admin' => 'admin/dashboard#index', as: :admin_dashboard
+
+  scope path:'admin', module: 'admin', as: 'admin' do
+    resources :articles do 
+      member do 
+        patch '/publish' => 'articles#publish', as: :publish
+        patch '/unpublish' => 'articles#unpublish', as: :unpublish
+        patch '/schedule' => 'articles#schedule', as: :schedule
+        patch '/unschedule' => 'articles#unschedule', as: :unschedule
+      end
+    end
+    resources :pages
+    resources :profiles
+    resources :practice_areas do
+      resources :services
+    end
     resources :services
   end
-  resources :profiles, path: "attorneys"
-  resources :services
-  resources :articles, path: "insights" do
+
+  resources :practice_areas, only: [:index, :show] do
+    resources :services, only: [:index, :show]
+  end
+  resources :profiles, path: "attorneys", only: [:index, :show]
+  resources :services, only: [:index, :show]
+  resources :articles, path: "insights", only: [:index, :show] do
 
     collection do
       get 'tags', as: :tags
-      get '/admin' => 'posts#admin', as: :admin
-      get '/subscribe' => 'posts#subscribe', as: :subscribe
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -37,4 +55,5 @@ Rails.application.routes.draw do
   namespace :support do
     resources :feedbacks
   end
+
 end

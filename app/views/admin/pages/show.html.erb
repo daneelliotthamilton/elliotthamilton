@@ -1,0 +1,20 @@
+<div id="gestus_header">
+  <h1><%= @page.title %></h1>
+</div>
+<div class="card">
+  <div class="card-body">
+    <strong>Url:</strong> <%= @page.url %><br>
+    <strong>Tags:</strong><br>
+    <% @page.tags.each do |tag| %>
+    <div class='card-body'>
+      Type: <%= tag.property_type %>, Property: <%= tag.property %><br>
+      Content: <%= tag.content %>
+    </div>
+    <% end %>
+  </div>
+  <div class="card-body">
+    <% if ["terms", 'privacy'].include?(@page.url) %>
+      <%= @page.content %>
+    <% end %>
+  </div>
+</div>

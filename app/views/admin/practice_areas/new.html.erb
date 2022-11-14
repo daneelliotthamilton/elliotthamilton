@@ -1,0 +1,30 @@
+<div class="admin_header">
+  <h1>New Practice Area</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-8">
+    <div class="component">
+      <div class="component-heading">Practice Area Details</div>
+      <div class="component-body">
+        <%= simple_form_for(@practice_area, url: admin_practice_areas_path) do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+          <div class="form-inputs">
+            <%= f.input :title %>
+            <%= f.input :description, as: :rich_text_area %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, class: "btn btn-primary" %>
+          </div>
+        <% end %>
+        <br>
+
+        <div>
+          <%= link_to "Back to practice areas", admin_practice_areas_path %>
+        </div>
+      </div>
+  </div>
+</div>

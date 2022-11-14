@@ -1,0 +1,32 @@
+<header>
+  <h1>Static Pages Information</h1>
+</header>
+<div class="actions">
+  <%= link_to "New Page", new_admin_page_path, class: 'btn btn-primary' %>
+</div>
+<table class="table">
+  <thead>
+    <th>Page Title</th>
+    <th>Page Url</th>
+    <th>Actions</th>
+  </thead>
+  <tbody>
+    <% @pages.each do |page| %>
+    <tr>
+      <td><%= page.title %></td>
+      <td>/<%= page.url %></td>
+      <td>
+        <%= link_to admin_page_path(page), class: 'btn btn-sm btn-primary' do %>
+          <%= icon 'fas','search' %>
+        <% end %>
+        <%= link_to edit_admin_page_path(page), class: 'btn btn-sm btn-info' do %>
+          <%= icon 'far','edit' %>
+        <% end %>
+        <%= link_to admin_page_path(page), method: :delete, class: 'btn btn-sm btn-danger' do %>
+          <%= icon 'fas','trash' %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,83 @@
+<div class="admin_header">
+  <h1>Admin Dashboard</h1>
+</div>
+<div class="row">
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="component">
+      <div class="component-heading">Profiles</div>
+      <% if @profiles.present? %>
+        <% @profiles.each do |profile| %>
+          <div class="component-item">
+            <%= link_to profile.title, admin_profile_path(profile) %>
+          </div>
+        <% end %>
+        <div class="component-item">
+          <%= link_to "New Profile", new_admin_profile_path, class: "btn btn-primary" %>
+        </div>
+      <% else %>
+        <div class="component-body">
+          <div class="no_content">
+            <%= icon 'fas', 'info_circle', class: "info_sign" %><br>
+            <p>You may add Attorney Profiles here.</p>
+            <%= link_to "Add Profile", new_admin_profile_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="component">
+      <div class="component-heading">Articles</div>
+      <% if @articles.present? %>
+        <% @articles.each do |article| %>
+          <div class="component-item">
+            <%= link_to article.title, admin_article_path(article) %>
+          </div>
+        <% end %>
+        <div class="component-item">
+          <%= link_to "New Aricle", new_admin_article_path, class: "btn btn-primary" %>
+        </div>
+      <% else %>
+        <div class="component-body">
+          <%= icon 'fas', 'info_circle', class: "info_sign" %><br>
+          <p>You may add Article here.</p>
+          <%= link_to "New Article", new_admin_article_path, class: "btn btn-primary" %>
+        </div>
+      <% end %>
+     </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="component">
+        <div class="component-heading">Pages</div>
+        <% if @pages.present? %>
+          <table class="table">
+            <thead>
+              <th>Title</th>
+              <th>Url</th>
+              <th>Actions</th>
+            </thead>
+            <tbody>
+              <% @pages.each do |page| %>
+                <tr>
+                  <td><%= page.title %></td>
+                  <td><%= page.url %></td>
+                  <td><%= link_to "View", admin_page_path(page), class: "btn btn-primary btn-sm" %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% else %>
+          <div class="component-body">
+            <div class="no_content">
+              <%= icon 'fas', 'info_circle', class: "info_sign" %><br>
+              <p>You may add additional pages here.</p>
+              <%= link_to "New Page", new_admin_page_path, clasS: "btn btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

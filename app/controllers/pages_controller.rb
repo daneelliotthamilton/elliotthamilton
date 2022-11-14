@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   def show
     @page = Page.find_by_url(params[:page])
     if valid_page?
+      @feedback = Support::Feedback.new if params[:page] == "contact"
       render template: "pages/#{params[:page]}"
     elsif @page.present?
       render template: "pages/show"
@@ -14,7 +15,7 @@ class PagesController < ApplicationController
   end
 
   def home
-    @articles = Article.last(3)
+    @articles = Article.published.last(3)
   end
 
   def landing

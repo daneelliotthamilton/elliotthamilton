@@ -1,6 +1,6 @@
 <div id="banner">
   <div id="banner-text" data-id="banner1">
-    Rethink your Possibilities.<br>
+    Reimagine your Possibilities.<br>
     Maximise your Potential.
   </div>
 </div>
@@ -11,8 +11,8 @@
   <div class="home-panel" id="home-about">
     <h2><%= icon 'fas', 'users' %> Who we are</h2>
     <p>
-      Elliott-Hamilton Law is a full service law firm with offices in Saint Kitts and Nevis
-      and Saint Lucia. We are capable of providing advice and legal services to a wide variety
+      Elliott-Hamilton Law is a full service law firm based in Saint Kitts and Nevis, but practising
+      in Saint Kitts and Nevis, Antigua and Barbuda, Guyana and Saint Lucia. We are capable of providing advice and legal services to a wide variety
        of clients in a number of jurisdictions in the English Speaking Caribbean.
        We provide timely service which an entreprenuerial mindset to help you achieve your goals.
     </p>
@@ -24,7 +24,7 @@
     <ul id="news-alerts">
     <% @articles.each do |article| %>
       <li>
-        <header><%= link_to article.title, article_path(article) %></header>
+        <header><%= link_to article.title, article_path(article) %> &bull; <%= formatted_time article.published_at %></header>
         <section>
           <%= article.description %>
         </section>

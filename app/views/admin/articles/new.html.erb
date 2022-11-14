@@ -1,0 +1,24 @@
+<div class="admin_header">
+  <h1>New Post</h1>
+</div>
+<div class="row">
+  <div class="col-sm-8">
+    <div class="component">
+      <div class="component-body">
+        <%= simple_form_for @article, url: admin_articles_path do |f| %>
+          <div class="form-inputs">
+            <%= f.input :title %>
+            <%= f.input :subtitle %>
+            <%= f.input :category, collection: Article::CATEGORIES, class: "select2" %>
+            <%= f.input :description %>
+            <%= f.input :body, as: :rich_text_area %>
+          </div>
+          <div class="form-actions">
+            <br>
+            <%= f.button :submit, "Submit Article", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
