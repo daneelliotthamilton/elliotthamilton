@@ -7,5 +7,5 @@ import "trix"
 import "@rails/actiontext"
 import 'select2'
 import 'flatpickr'
-import './init.js'
-import './form.js'
+import "./custom/init.js"
+import "./custom/form.js"
