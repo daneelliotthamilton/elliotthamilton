@@ -2,7 +2,7 @@
 	{
 		"@context":"http://schema.org",
 		"@type": "BlogPosting",
-		"url": "<%= post_url(@article) %>",
+		"url": "<%= article_url(@article) %>",
 		"headline": "<%= @article.title %>",
 		"alternativeHeadline": "<%= @article.subtitle %>",
 		"dateCreated": "<%= @article.created_at.strftime('%FT%T') %>",
