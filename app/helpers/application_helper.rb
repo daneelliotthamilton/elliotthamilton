@@ -46,5 +46,13 @@ module ApplicationHelper
 			end
 		end
 	end
+
+  def header_link_class(path)
+		if current_page?(path)
+			"active_nav"
+		else
+			"inactive"
+		end
+	end
   
 end

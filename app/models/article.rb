@@ -9,6 +9,7 @@ class Article < ApplicationRecord
   pg_search_scope :basic_search, against: [:title], associated_against: {
     rich_text_overview: [:body]
   }
+  scope :draft, -> { where(status: "DRAFT") }
   scope :published, -> { where(published: true) }
   scope :published_today, -> { where(published_at: DateTime.now.beginning_of_day..DateTime.now.end_of_day) }
   scope :published_this_week, -> { where(published_at: DateTime.now.beginning_of_week..DateTime.now.end_of_week) }

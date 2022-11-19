@@ -1,5 +1,5 @@
 class Admin::ArticlesController < AdminController
-    before_action :set_article, only: %i[ show edit update destroy ]
+    before_action :set_article, only: %i[ show edit update destroy publish unpublish schedule unschedule ]
   
     # GET /articles or /articles.json
     def index
@@ -58,7 +58,11 @@ class Admin::ArticlesController < AdminController
     end
 
     def publish
-      @article.publish
+      if @article.publish
+        redirect_to admin_article_url(@article), notice: "Article was publsihed." 
+      else
+        render :show
+      end
     end
 
     def unpublish
@@ -88,6 +92,21 @@ class Admin::ArticlesController < AdminController
       respond_to do |format|
         format.json
       end
+    end
+
+    def published
+      @articles = Article.published
+      render :index
+    end
+
+    def draft
+      @articles = Article.draft
+      render :index
+    end
+
+    def scheduled
+      @articles = Article.scheduled
+      render :index
     end
   
     private

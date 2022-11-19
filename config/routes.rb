@@ -13,6 +13,11 @@ Rails.application.routes.draw do
 
   scope path:'admin', module: 'admin', as: 'admin' do
     resources :articles do 
+      collection do 
+        get '/published' => 'articles#published', as: :published
+        get '/draft' => 'articles#draft', as: :draft
+        get '/scheduled' => 'articles#scheduled', as: :scheduled
+      end
       member do 
         patch '/publish' => 'articles#publish', as: :publish
         patch '/unpublish' => 'articles#unpublish', as: :unpublish
@@ -43,7 +48,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root to: 'pages#landing'
+  root to: 'pages#home'
   get 'pages/:page' => 'pages#show', as: :pages
   get 'privacy' => 'pages#show', page: 'privacy', as: :privacy
   get 'pricing' => 'pages#show', page: 'pricing', as: :pricing

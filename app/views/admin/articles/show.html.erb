@@ -36,14 +36,14 @@
             This article is generally available to website visitors. If you wish to remove this article from circulations you should take it down below.
           </p>
           <p>
-            <%= link_to "Take Down", unpublish_admin_article_path, class: "btn btn-danger", method: :patch %>
+            <%= link_to "Take Down", unpublish_admin_article_path, class: "btn btn-danger", data: { 'turbo-method': :patch } %>
           </p>
         <% else %>
         <p>
           By publishing this article you will make the article available to visitors to the website. 
         </p>
         <p>
-          <%= link_to "Publish", publish_admin_article_path, class: "btn btn-success", method: :patch %>
+          <%= link_to "Publish", publish_admin_article_path, class: "btn btn-success", data: { 'turbo-method': :patch } %>
 
         </p>
         <% end %>
@@ -56,7 +56,7 @@
             The Article is scheduled for publication at <%= formatted_time(@article.scheduled_at) %>.
           </p>
           <p>
-            <%= link_to "Cancel Schedule", unschedule_admin_article_path, class: "btn btn-danger", method: :patch %>
+            <%= link_to "Cancel Schedule", unschedule_admin_article_path, class: "btn btn-danger", data: { 'turbo-method': :patch } %>
           </p>
         <% else %>
           <p>

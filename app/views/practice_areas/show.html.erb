@@ -2,8 +2,13 @@
 <h1><%= @practice_area.title %></h1>
 </div>
 <div class="page-description">
+<p>
   <%= @practice_area.description %>
+</p>
 </div>
+<p>
+<h3>Our Services:</h3>
+</p>
 <ul class="list-group">
   <% @practice_area.services.each do |service| %>
     <li class="list-group-item"><%= link_to service.title, practice_area_service_path(@practice_area, service) %></li>
