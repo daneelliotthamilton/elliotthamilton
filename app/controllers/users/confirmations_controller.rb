@@ -2,7 +2,6 @@
 
 class Users::ConfirmationsController < Devise::ConfirmationsController
   # GET /resource/confirmation/new
-  skip_before_action :redirect_to_landing
   
   def new
     super

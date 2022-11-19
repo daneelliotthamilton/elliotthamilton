@@ -2,7 +2,6 @@
 
 class Users::UnlocksController < Devise::UnlocksController
   # GET /resource/unlock/new
-  skip_before_action :redirect_to_landing
   
   def new
     super
