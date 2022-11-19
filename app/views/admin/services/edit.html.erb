@@ -1,6 +1,6 @@
 <h1>Editing service</h1>
 
-<%=<%= simple_form_for(@service, url: admin_practice_area_service_path(practice_area_id: @practice_area.id, id: @service.id)) do |f| %>
+<%= simple_form_for @service, url: admin_practice_area_service_path(practice_area_id: @practice_area.id, id: @service.id) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
