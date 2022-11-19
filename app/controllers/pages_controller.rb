@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   layout 'landing', only: [:landing]
-  skip_before_action :redirect_to_landing
 
   def show
     @page = Page.find_by_url(params[:page])
