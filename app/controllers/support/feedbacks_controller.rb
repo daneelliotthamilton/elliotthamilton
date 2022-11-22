@@ -10,16 +10,16 @@ module Support
         if recaptcha_valid || checkbox_success
           if @feedback.save
             SupportMailer.send_feedback(@feedback).deliver_later
-            format.html { redirect_to root_url, notice: 'Thank you. I will get back to you as soon as possible.' }
+            format.html { redirect_to confirmed_url, notice: 'Thank you. I will get back to you as soon as possible.' }
             format.js
           else
-            format.html { render :back }
+            format.html { render 'pages/contact' }
             format.js { render :new }
             format.json { render json: @feedback.errors, status: :unprocessable_entity }
           end
         else
           @show_checkbox_recaptcha = true if recaptcha_valid == false
-          format.html { render :back }
+          format.html { render 'pages/contact' }
           format.js { render :new }
           format.json { render json: @feedback.errors, status: :unprocessable_entity }
         end

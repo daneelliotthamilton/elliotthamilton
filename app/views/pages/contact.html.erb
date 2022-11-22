@@ -21,7 +21,7 @@
         <p>
           <%= flash[:recaptcha_error] %>
           <% if @show_checkbox_recaptcha %>
-            <%= recaptcha_tags site_key: Rails.application.credentials.recaptcha[:site_key] %>
+            <%= recaptcha_tags site_key: Rails.application.credentials.recaptcha_v2[:site_key] %>
           <% else %>
             <%= recaptcha_v3(action: 'send_feedback') %>
           <% end %>
@@ -30,3 +30,4 @@
       <% end %>
   </div>
 </div>
+<%= console %>

@@ -55,6 +55,7 @@ Rails.application.routes.draw do
   get 'terms' => 'pages#show', page: 'terms', as: :terms
   get 'contact' => 'pages#show', page: 'contact', as: :contact
   get 'about' => 'pages#show', page: 'about', as: :about
+  get 'confirmed' => 'pages#show', page: 'confirmed', as: :confirmed
   get 'home' => 'pages#home'
 
   namespace :support do
