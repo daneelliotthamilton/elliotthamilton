@@ -96,6 +96,8 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.9.3, < 3)
       sassc-rails (>= 2.0.0)
+    bugsnag (6.24.2)
+      concurrent-ruby (~> 1.0)
     builder (3.2.4)
     capybara (3.36.0)
       addressable
@@ -347,6 +349,7 @@ DEPENDENCIES
   aws-sdk-s3
   bootsnap
   bootstrap (~> 5.1.3)
+  bugsnag
   capybara
   cocoon
   country_select
