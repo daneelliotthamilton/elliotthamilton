@@ -14,7 +14,7 @@ class PagesController < ApplicationController
   end
 
   def home
-    @articles = Article.published.order("published_at DSC").first(2)
+    @articles = Article.published.order(published_at: :desc).first(2)
   end
 
   def landing
