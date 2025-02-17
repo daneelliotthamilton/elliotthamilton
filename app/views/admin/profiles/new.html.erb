@@ -19,6 +19,8 @@
         <%= f.input :expertise %>
         <%= f.input :vcard, as: :file, direct_upload: true %>
         <%= f.input :email %>
+        <%= f.input :role, collection: Profile::ROLES %>
+
       </div>
     </div>
   </div>
