@@ -3,7 +3,8 @@ class ProfilesController < ApplicationController
 
   # GET /profiles or /profiles.json
   def index
-    @profiles = Profile.all
+    @partners = Profile.partners.order(:created_at)
+    @associates = Profile.associates.order(:created_at)
   end
 
   # GET /profiles/1 or /profiles/1.json

@@ -1,3 +1,6 @@
+<% provide :article_schema do %>
+    <%= render 'pages/schema' %>
+  <% end %>
 <div id="banner">
   <div id="banner-text" data-id="banner1">
     Reimagine your Possibilities.<br>
@@ -7,93 +10,120 @@
 <div class="row">
 </div>
 <div class="row">
-<div class="col-sm-6">
-  <div class="home-panel" id="home-about">
-    <h2><%= icon 'fas', 'users' %> Who we are</h2>
-    <p>
-      Elliott-Hamilton Law is a full service law firm based in Saint Kitts and Nevis, 
-      with legal practices in Saint Kitts and Nevis, Antigua and Barbuda, Guyana and
-       Saint Lucia. We are well placed to provide advice and legal services to a wide
-        variety of clients in a number of jurisdictions in the English Speaking Caribbean.
-         We provide timely service with a flexible creative and dynamic mindset to help you 
-         achieve your goals.
-    </p>
+  <div class="col-sm-6">
+    <div class="home-panel" id="home-about">
+      <h2><%= icon 'fas', 'users' %> Who we are</h2>
+      <p>
+        Elliott-Hamilton Law is a full service law firm based in Saint Kitts and Nevis, 
+        with legal practices in Saint Kitts and Nevis, Antigua and Barbuda, Guyana and
+        Saint Lucia. We are well placed to provide advice and legal services to a wide
+          variety of clients in a number of jurisdictions in the English Speaking Caribbean.
+          We provide timely service with a flexible creative and dynamic mindset to help you 
+          achieve your goals.
+      </p>
+    </div>
   </div>
-</div>
-<div class="col-sm-6">
-  <div class="home-panel" id="home-news">
-    <h2><%= icon 'fas', 'rss' %> News and Updates</h2>
-    <ul id="news-alerts">
-    <% @articles.each do |article| %>
-      <li>
-        <section>
-          <%= article.description %>
-        </section>
-        <header><%= link_to article.title, article_path(article) %> &bull; <%= formatted_time article.published_at %></header>
+  <div class="col-sm-6">
+    <div class="home-panel" id="home-news">
+      <h2><%= icon 'fas', 'rss' %> News and Updates</h2>
+      <ul id="news-alerts">
+      <% @articles.each do |article| %>
+        <li>
+          <section>
+            <%= article.description %>
+          </section>
+          <header><%= link_to article.title, article_path(article) %> &bull; <%= formatted_time article.published_at %></header>
 
-      </li>
-    <% end %>
-    </ul>
-    <div class="row">
-      <div class="center">
-        <%= link_to "Read More", articles_path, class: "btn btn-primary btn-sm" %>
+        </li>
+      <% end %>
+      </ul>
+      <div class="row">
+        <div class="center">
+          <%= link_to "Read More", articles_path, class: "btn btn-primary btn-sm" %>
+        </div>
       </div>
     </div>
   </div>
 </div>
-</div>
 <div id="home-practice-areas">
+  <div class="row">
+    <div class="col-12">
+      <h1 id="home-practice-header">Our Practice Areas</h1>
+    </div>
+    <div class="col-sm-4">
+      <div class="pa-section">
+        <div class="pa-image-holder">
+          <%= image_tag('real-estate@2x.png', id: 'real-estate-img', size: "130x117") %>
+        </div>
+        <p>Real Estate</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="pa-section">
+        <div class="pa-image-holder">
+          <%= image_tag('corporate@2x.png', id: 'corporate-img', size:"130x73") %>
+        </div>
+        <p>Corporate & Commercial</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="pa-section">
+        <div class="pa-image-holder">
+          <%= image_tag('dispute@2x.png', id: 'dispute-img', size: "130x126") %>
+        </div>
+        <p>Litigation</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="pa-section">
+        <div class="pa-image-holder">
+          <%= image_tag('tort@2x.png', id:'tort-img', size: "105x130") %>
+        </div>
+        <p>Personal Injury & Insurance</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="pa-section">
+        <div class="pa-image-holder">
+          <%= image_tag('admin@2x.png', id: 'admin-img', size: "130x120") %>
+        </div>
+        <p>Administrative & Constitutional Law</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="pa-section">
+        <div class="pa-image-holder">
+          <%= image_tag('ip@2x.png', id: 'ip-img', size: "130x128") %>
+        </div>
+        <p>Intellectual Property</p>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="row">
-<div class="col-12">
-  <h1 id="home-practice-header">Our Practice Areas</h1>
-</div>
-<div class="col-sm-4">
-  <div class="pa-section">
-    <div class="pa-image-holder">
-      <%= image_tag('real-estate@2x.png', id: 'real-estate-img', size: "130x117") %>
-    </div>
-    <p>Real Estate</p>
+  <div class="col-12">
+    <h1 class="text-center">Our International Reach</h1>
+    <br>
+    <p>
+      <%= link_to "https://www.terralex.org", target: "_blank" do %>
+        <%= image_tag('terralex.svg', size: "354x99", class: "mx-auto d-block") %>
+      <% end %>
+    </p>
+    <p class="lead">
+      We are the exclusive member firm for Antigua & Barbuda, Saint Kitts and Saint Lucia.
+    </p>
+    <p class="lead">
+      TerraLex is a strategic partner that offers innovative and
+      forward-thinking solutions beyond conventional legal
+      assistance. With over 30 years of experience, TerraLex
+      boasts a vast community of over 22,000 attorneys from
+      highly regarded and carefully vetted independent law
+      firms worldwide. This elite network spans 200+
+      jurisdictions in 120+ countries, ensuring a tailored and
+      unified approach to cross-border legal challenges.
+      TerraLex’s commitment to collaboration is proven in
+      everything we do, facilitating client success in today's
+      dynamic global business environment.
+    </p>
   </div>
-</div>
-<div class="col-sm-4">
-  <div class="pa-section">
-    <div class="pa-image-holder">
-      <%= image_tag('corporate@2x.png', id: 'corporate-img', size:"130x73") %>
-    </div>
-    <p>Corporate & Commercial</p>
-  </div>
-</div>
-<div class="col-sm-4">
-  <div class="pa-section">
-    <div class="pa-image-holder">
-      <%= image_tag('dispute@2x.png', id: 'dispute-img', size: "130x126") %>
-    </div>
-    <p>Litigation</p>
-  </div>
-</div>
-<div class="col-sm-4">
-  <div class="pa-section">
-    <div class="pa-image-holder">
-      <%= image_tag('tort@2x.png', id:'tort-img', size: "105x130") %>
-    </div>
-    <p>Personal Injury & Insurance</p>
-  </div>
-</div>
-<div class="col-sm-4">
-  <div class="pa-section">
-    <div class="pa-image-holder">
-      <%= image_tag('admin@2x.png', id: 'admin-img', size: "130x120") %>
-    </div>
-    <p>Administrative & Constitutional Law</p>
-  </div>
-</div>
-<div class="col-sm-4">
-  <div class="pa-section">
-    <div class="pa-image-holder">
-      <%= image_tag('ip@2x.png', id: 'ip-img', size: "130x128") %>
-    </div>
-    <p>Intellectual Property</p>
-  </div>
-</div>
-</div>
 </div>

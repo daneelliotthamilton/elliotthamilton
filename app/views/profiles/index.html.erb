@@ -1,13 +1,47 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Attorneys</h1>
+<p class="lead">
+At Elliott-Hamilton Law, our attorneys are more than legal advisors—they are strategic partners dedicated to your success.
+ With a wealth of experience across diverse practice areas, our team delivers insightful counsel,
+ innovative solutions, and unwavering advocacy. Whether you're navigating complex litigation, structuring business transactions,
+or seeking trusted guidance, our attorneys are here to help you achieve your goals with confidence.
 
-<div id="profiles">
-  <% @profiles.each do |profile| %>
-    <%= render profile %>
-    <p>
-      <%= link_to "Read More", profile %>
-    </p>
+Explore our team below and discover how our expertise can work for you.
+</p>
+
+<% if @partners.present? %>
+<h2> Partners</h2>
+<div class="row">
+  <% @partners.each do |profile| %>
+    <div class="col-3">
+      <%= link_to profile_path(profile) do %>
+          <div class="profile-listing">
+              <%= image_tag profile.avatar, class: "img-fluid mx-auto d-block", width: "250" %>
+            <p class="text-center"> 
+              <%= profile.title.upcase %>
+            </p>
+          </div>
+      <% end %>
+    </div>
   <% end %>
 </div>
+<% end %>
+<% if @associates.present? %>
+  <h2> Associates </h2>
+  <div class="row">
+    <% @associates.each do |profile| %>
+      <div class="col-2">
+      <%= link_to profile_path(profile) do %>
+          <div class="profile">
+              <%= image_tag profile.avatar, class: "img-fluid mx-auto d-block", width: "200" %>
+            <p class="text-center"> 
+              <%= profile.title.upcase %>
+            </p>
+          </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+<% end %>
 
