@@ -14,7 +14,7 @@ Explore our team below and discover how our expertise can work for you.
 <h2> Partners</h2>
 <div class="row">
   <% @partners.each do |profile| %>
-    <div class="col-3">
+    <div class="col-sm-3 col-12">
       <%= link_to profile_path(profile) do %>
           <div class="profile-listing">
               <%= image_tag profile.avatar, class: "img-fluid mx-auto d-block", width: "250" %>
@@ -31,7 +31,7 @@ Explore our team below and discover how our expertise can work for you.
   <h2> Associates </h2>
   <div class="row">
     <% @associates.each do |profile| %>
-      <div class="col-2">
+      <div class="col-sm-3 col-12">
       <%= link_to profile_path(profile) do %>
           <div class="profile">
               <%= image_tag profile.avatar, class: "img-fluid mx-auto d-block", width: "200" %>
